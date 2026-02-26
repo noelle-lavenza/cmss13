@@ -149,10 +149,7 @@
 		return
 	var/row_index = (data_index - 1) * interval + ceil(data_value / 10)
 	var/col_index = ((data_value - 1) % 10) + 1 // 1 indexed byond makes the magic of modulo annoying
-	var/query = "class='punchslot cell-[row_index]-[col_index]'"
-	var/position = findtext(info, query)
-	if(position) // There's only going to be one possible match so don't try to replace more than 1
-		info = replacetext(info, query, "class='punchslot punched cell-[row_index]-[col_index]'", position, position + length(query))
+	info = replacetext(info, "class='punchslot cell-[row_index]-[col_index]'", "class='punchslot punched cell-[row_index]-[col_index]'")
 
 /obj/item/paper/punch_card/updateinfolinks()
 	info_links = info
