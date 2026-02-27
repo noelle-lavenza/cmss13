@@ -253,7 +253,7 @@
 /obj/item/device/radio/headset/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
 	if (slot == WEAR_L_EAR || slot == WEAR_R_EAR)
-		RegisterSignal(user, list(
+		RegisterSignals(user, list(
 			COMSIG_LIVING_REJUVENATED,
 			COMSIG_HUMAN_REVIVED,
 		), PROC_REF(turn_on))

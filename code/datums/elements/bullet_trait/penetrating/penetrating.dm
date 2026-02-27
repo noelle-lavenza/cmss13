@@ -14,7 +14,7 @@
 	src.distance_loss_per_hit = distance_loss_per_hit
 
 	RegisterSignal(target, COMSIG_BULLET_POST_HANDLE_TURF, PROC_REF(handle_passthrough_turf), override = TRUE)
-	RegisterSignal(target, list(
+	RegisterSignals(target, list(
 		COMSIG_BULLET_POST_HANDLE_MOB,
 		COMSIG_BULLET_POST_HANDLE_OBJ
 	), PROC_REF(handle_passthrough_movables), override = TRUE)

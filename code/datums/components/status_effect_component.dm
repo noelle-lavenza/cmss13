@@ -10,7 +10,7 @@
 
 /datum/component/status_effect/Initialize()
 	. = ..()
-	RegisterSignal(parent, list(COMSIG_XENO_DEBUFF_CLEANSE, COMSIG_LIVING_REJUVENATED), PROC_REF(cleanse))
+	RegisterSignals(parent, list(COMSIG_XENO_DEBUFF_CLEANSE, COMSIG_LIVING_REJUVENATED), PROC_REF(cleanse))
 
 /datum/component/status_effect/proc/cleanse()
 	SIGNAL_HANDLER

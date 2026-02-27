@@ -34,7 +34,7 @@ GLOBAL_LIST_EMPTY_TYPED(hologram_list, /mob/hologram)
 	RegisterSignal(hologram, COMSIG_CLIENT_MOB_MOVE, PROC_REF(handle_move))
 	RegisterSignal(hologram, COMSIG_MOB_RESET_VIEW, PROC_REF(handle_view))
 	RegisterSignal(hologram, COMSIG_MOB_TAKE_DAMAGE, PROC_REF(take_damage))
-	RegisterSignal(hologram, list(
+	RegisterSignals(hologram, list(
 		COMSIG_BINOCULAR_ATTACK_SELF,
 		COMSIG_BINOCULAR_HANDLE_CLICK
 	), PROC_REF(handle_binoc))

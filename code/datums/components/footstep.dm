@@ -25,7 +25,7 @@
 	footstep_sounds = footstep_sounds_
 	drag_sounds = drag_sounds_
 
-	RegisterSignal(parent, list(COMSIG_MOVABLE_MOVED), PROC_REF(play_simplestep))
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(play_simplestep))
 
 /datum/component/footstep/proc/prepare_step()
 	var/turf/open/T = get_turf(parent)

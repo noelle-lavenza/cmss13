@@ -13,7 +13,7 @@
 	src.effect_source = effect_source
 	src.max_reduction_amount = max_reduction_amount
 	src.reduction_amount_per_slash = reduction_per_slash
-	RegisterSignal(A, list(
+	RegisterSignals(A, list(
 	COMSIG_XENO_ALIEN_ATTACK,
 	COMSIG_HUMAN_ALIEN_ATTACK
 	), PROC_REF(increase_cooldown_reduction))

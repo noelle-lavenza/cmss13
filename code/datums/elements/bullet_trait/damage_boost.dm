@@ -47,7 +47,7 @@ GLOBAL_LIST_INIT(damage_boost_vehicles, typecacheof(/obj/vehicle/multitile))
 	src.active_damage_mult = 1
 	src.atom_type = 0
 
-	RegisterSignal(target, list(
+	RegisterSignals(target, list(
 		COMSIG_BULLET_PRE_HANDLE_OBJ,
 		COMSIG_BULLET_PRE_HANDLE_TURF,
 		COMSIG_BULLET_PRE_HANDLE_MOB,

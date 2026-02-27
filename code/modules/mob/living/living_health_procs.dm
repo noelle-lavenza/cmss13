@@ -496,7 +496,7 @@
 
 /mob/living/proc/grant_spawn_protection(duration)
 	status_flags |= RECENTSPAWN|GODMODE
-	RegisterSignal(src, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(handle_fire_protection))
+	RegisterSignals(src, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(handle_fire_protection))
 	addtimer(CALLBACK(src, PROC_REF(end_spawn_protection)), duration)
 
 /mob/living/proc/end_spawn_protection()

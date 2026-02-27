@@ -47,7 +47,7 @@
 
 /datum/component/status_effect/toxic_buildup/RegisterWithParent()
 	START_PROCESSING(SSdcs, src)
-	RegisterSignal(parent, list(
+	RegisterSignals(parent, list(
 		COMSIG_XENO_PRE_CALCULATE_ARMOURED_DAMAGE_PROJECTILE,
 		COMSIG_XENO_PRE_APPLY_ARMOURED_DAMAGE
 	), PROC_REF(apply_toxic_buildup))

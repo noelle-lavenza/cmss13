@@ -79,7 +79,7 @@
 		weeded_turf = turf
 		SEND_SIGNAL(turf, COMSIG_WEEDNODE_GROWTH) // Currently for weed_food wakeup
 
-	RegisterSignal(src, list(
+	RegisterSignals(src, list(
 		COMSIG_ATOM_TURF_CHANGE,
 		COMSIG_MOVABLE_TURF_ENTERED
 	), PROC_REF(set_turf_weeded))
@@ -564,7 +564,7 @@
 	create_reagents(30)
 	reagents.add_reagent(PLASMA_PURPLE, 30)
 
-	RegisterSignal(src, list(
+	RegisterSignals(src, list(
 		COMSIG_WEEDNODE_GROWTH_COMPLETE,
 		COMSIG_WEEDNODE_CANNOT_EXPAND_FURTHER,
 	), PROC_REF(complete_growth))

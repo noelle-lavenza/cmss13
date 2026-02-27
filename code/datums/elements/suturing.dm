@@ -41,7 +41,7 @@
 	description_pain = desc_pain
 	description_wounds = desc_wounds
 
-	RegisterSignal(target, list(COMSIG_ITEM_ATTACK, COMSIG_ITEM_ATTACK_SELF), PROC_REF(begin_suture))
+	RegisterSignals(target, list(COMSIG_ITEM_ATTACK, COMSIG_ITEM_ATTACK_SELF), PROC_REF(begin_suture))
 
 /datum/element/suturing/Detach(datum/source, force)
 	UnregisterSignal(source, list(COMSIG_ITEM_ATTACK, COMSIG_ITEM_ATTACK_SELF))

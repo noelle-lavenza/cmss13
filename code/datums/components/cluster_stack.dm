@@ -55,7 +55,7 @@
 
 /datum/component/cluster_stack/RegisterWithParent()
 	START_PROCESSING(SSdcs, src)
-	RegisterSignal(parent, list(,
+	RegisterSignals(parent, list(,
 		COMSIG_XENO_BULLET_ACT,
 		COMSIG_HUMAN_BULLET_ACT
 	), PROC_REF(apply_cluster_stacks))

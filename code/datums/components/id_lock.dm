@@ -39,7 +39,7 @@
 	owner_ref = WEAKREF(user)
 	human_user.balloon_alert(user, "item locked")
 
-	RegisterSignal(human_user, list(
+	RegisterSignals(human_user, list(
 		COMSIG_PARENT_QDELETING,
 		COMSIG_HUMAN_SET_UNDEFIBBABLE
 	), PROC_REF(handle_human_death))

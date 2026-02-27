@@ -15,7 +15,7 @@
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_INCAPACITATED), PROC_REF(on_incapacitated_trait_gain))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_INCAPACITATED), PROC_REF(on_incapacitated_trait_loss))
 
-	RegisterSignal(src, list(SIGNAL_ADDTRAIT(TRAIT_UNDENSE), SIGNAL_REMOVETRAIT(TRAIT_UNDENSE)), PROC_REF(undense_changed))
+	RegisterSignals(src, list(SIGNAL_ADDTRAIT(TRAIT_UNDENSE), SIGNAL_REMOVETRAIT(TRAIT_UNDENSE)), PROC_REF(undense_changed))
 
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_DAZED), PROC_REF(on_dazed_trait_gain))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_DAZED), PROC_REF(on_dazed_trait_loss))

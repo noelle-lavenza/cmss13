@@ -55,7 +55,7 @@
 
 	to_chat(H, SPAN_NOTICE("FIREWALK protocol has been activated. You will now be immune to fire for 6 seconds!"))
 	RegisterSignal(H, COMSIG_LIVING_PREIGNITION, PROC_REF(fire_shield_is_on))
-	RegisterSignal(H, list(
+	RegisterSignals(H, list(
 		COMSIG_LIVING_FLAMER_FLAMED,
 	), PROC_REF(flamer_fire_callback))
 	fire_shield_on = TRUE

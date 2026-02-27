@@ -62,11 +62,11 @@
 		hide_in_progress = FALSE
 		return
 	hide_in_progress = FALSE
-	RegisterSignal(H,  list(
+	RegisterSignals(H,  list(
 		COMSIG_MOB_FIRED_GUN,
 		COMSIG_MOB_FIRED_GUN_ATTACHMENT)
 		, PROC_REF(fade_in))
-	RegisterSignal(H, list(
+	RegisterSignals(H, list(
 		COMSIG_MOB_DEATH,
 		COMSIG_HUMAN_EXTINGUISH
 	), PROC_REF(deactivate_camouflage))

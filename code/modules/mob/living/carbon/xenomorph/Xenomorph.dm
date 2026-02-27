@@ -438,7 +438,7 @@
 	caste = GLOB.xeno_datum_list[caste_type]
 
 	//Fire immunity check signals
-	RegisterSignal(src, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(flamer_crossed))
+	RegisterSignals(src, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(flamer_crossed))
 
 	if(caste.spit_types && length(caste.spit_types))
 		ammo = GLOB.ammo_list[caste.spit_types[1]]

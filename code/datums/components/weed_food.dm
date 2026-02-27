@@ -88,7 +88,7 @@
 
 /datum/component/weed_food/RegisterWithParent()
 	RegisterSignal(parent_mob, COMSIG_MOVABLE_TURF_ENTERED, PROC_REF(on_move))
-	RegisterSignal(parent_mob, list(COMSIG_LIVING_REJUVENATED, COMSIG_HUMAN_REVIVED), PROC_REF(on_rejuv))
+	RegisterSignals(parent_mob, list(COMSIG_LIVING_REJUVENATED, COMSIG_HUMAN_REVIVED), PROC_REF(on_rejuv))
 	RegisterSignal(parent_mob, COMSIG_HUMAN_SET_UNDEFIBBABLE, PROC_REF(on_update))
 	RegisterSignal(parent_mob, COMSIG_LIVING_PREIGNITION, PROC_REF(on_preignition))
 	RegisterSignal(SSdcs, COMSIG_GLOB_GROUNDSIDE_FORSAKEN_HANDLING, PROC_REF(on_forsaken))

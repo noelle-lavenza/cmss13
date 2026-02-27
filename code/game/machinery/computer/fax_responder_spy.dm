@@ -148,7 +148,7 @@
 	name = "Spy Camera ([spy_faction])"
 	RegisterSignal(spy_operator, COMSIG_MOB_PRE_CLICK, PROC_REF(handle_overwatch))
 	//RegisterSignal(spy_operator, COMSIG_XENO_OVERWATCH_XENO, PROC_REF(start_watching))
-	//RegisterSignal(spy_operator, list(
+	//RegisterSignals(spy_operator, list(
 	//	COMSIG_XENO_STOP_OVERWATCH,
 	//	COMSIG_XENO_STOP_OVERWATCH_XENO
 	//), PROC_REF(stop_watching))

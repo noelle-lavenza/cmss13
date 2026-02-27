@@ -512,7 +512,7 @@
 	RegisterSignal(xeno, COMSIG_MOB_DEATH, PROC_REF(release_haul_death))
 	RegisterSignal(src, COMSIG_ATTEMPT_MOB_PULL, PROC_REF(haul_grab_attempt))
 	RegisterSignal(src, COMSIG_LIVING_PREIGNITION, PROC_REF(haul_fire_shield))
-	RegisterSignal(src, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(haul_fire_shield_callback))
+	RegisterSignals(src, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(haul_fire_shield_callback))
 	layer = LYING_BETWEEN_MOB_LAYER
 	add_filter("hauled_shadow", 1, color_matrix_filter(rgb(95, 95, 95)))
 	pixel_y = -7

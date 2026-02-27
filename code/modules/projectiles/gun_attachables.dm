@@ -1828,7 +1828,7 @@ Defined in conflicts.dm of the #defines folder.
 	gun_user.see_in_dark += darkness_view
 	gun_user.lighting_alpha = 127
 	gun_user.sync_lighting_plane_alpha()
-	RegisterSignal(gun, list(
+	RegisterSignals(gun, list(
 		COMSIG_ITEM_DROPPED,
 		COMSIG_ITEM_UNWIELD,
 	), PROC_REF(on_unscope))

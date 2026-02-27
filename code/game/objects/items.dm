@@ -942,7 +942,7 @@
 	if(user.client)
 		user.client.change_view(viewsize, src)
 
-		RegisterSignal(src, list(
+		RegisterSignals(src, list(
 			COMSIG_ITEM_DROPPED,
 			COMSIG_ITEM_UNWIELD,
 			COMSIG_PARENT_QDELETING,

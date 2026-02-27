@@ -55,7 +55,7 @@
 
 /datum/component/cell/RegisterWithParent()
 	..()
-	RegisterSignal(parent, list(COMSIG_PARENT_ATTACKBY, COMSIG_ITEM_ATTACKED), PROC_REF(on_object_hit))
+	RegisterSignals(parent, list(COMSIG_PARENT_ATTACKBY, COMSIG_ITEM_ATTACKED), PROC_REF(on_object_hit))
 	RegisterSignal(parent, COMSIG_CELL_ADD_CHARGE, PROC_REF(add_charge))
 	RegisterSignal(parent, COMSIG_CELL_USE_CHARGE, PROC_REF(use_charge))
 	RegisterSignal(parent, COMSIG_CELL_CHECK_CHARGE, PROC_REF(has_charge))

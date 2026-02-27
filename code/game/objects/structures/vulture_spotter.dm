@@ -88,7 +88,7 @@
 	if(user.client)
 		RegisterSignal(user.client, COMSIG_PARENT_QDELETING, PROC_REF(do_unscope))
 		user.client.change_view(scope_zoom, src)
-	RegisterSignal(user, list(COMSIG_MOB_PICKUP_ITEM, COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION), PROC_REF(do_unscope))
+	RegisterSignals(user, list(COMSIG_MOB_PICKUP_ITEM, COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION), PROC_REF(do_unscope))
 	user.see_in_dark += darkness_view
 	user.lighting_alpha = 127
 	user.sync_lighting_plane_alpha()

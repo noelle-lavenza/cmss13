@@ -15,7 +15,7 @@
 /datum/cm_objective/recover_corpses/New()
 	. = ..()
 
-	RegisterSignal(SSdcs, list(
+	RegisterSignals(SSdcs, list(
 		COMSIG_GLOB_MARINE_DEATH,
 		COMSIG_GLOB_XENO_DEATH
 	), PROC_REF(handle_mob_deaths))
