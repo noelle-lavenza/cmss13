@@ -83,7 +83,6 @@
 
 	GLOB.turfs += src
 
-
 	assemble_baseturfs()
 
 	levelupdate()
@@ -124,12 +123,8 @@
 		is_weedable = NOT_WEEDABLE
 
 	if(istransparentturf(src))
-		return INITIALIZE_HINT_LATELOAD
-	else
-		return INITIALIZE_HINT_NORMAL
-
-/turf/LateInitialize(mapload)
-	update_vis_contents()
+		update_vis_contents()
+	return INITIALIZE_HINT_NORMAL
 
 /obj/vis_contents_holder
 	plane = OPEN_SPACE_PLANE_START

@@ -27,7 +27,8 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		initialize_pass_flags()
 
 	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
-	return INITIALIZE_HINT_LATELOAD
+	update_vis_contents()
+	return INITIALIZE_HINT_NORMAL
 
 /turf/open_space/attack_alien(mob/user)
 	attack_hand(user)
@@ -107,4 +108,5 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/solid_open_space/Initialize()
 	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	icon_state = "transparent"
-	return INITIALIZE_HINT_LATELOAD
+	update_vis_contents()
+	return INITIALIZE_HINT_NORMAL

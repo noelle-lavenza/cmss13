@@ -2570,9 +2570,9 @@
 /turf/open/floor/grass/LateInitialize()
 	. = ..()
 	for(var/direction in GLOB.cardinals)
-		if(istype(get_step(src,direction),/turf/open/floor))
-			var/turf/open/floor/FF = get_step(src,direction)
-			FF.update_icon() //so siding get updated properly
+		var/turf/open/floor/neighbor_turf = get_step(src, direction)
+		if(istype(neighbor_turf, /turf/open/floor))
+			neighbor_turf.update_icon() //so siding get updated properly
 
 /turf/open/floor/grass/is_grass_floor()
 	return TRUE
@@ -2602,10 +2602,10 @@
 /turf/open/floor/carpet/LateInitialize()
 	. = ..()
 	update_icon()
-	for(var/direction in list(1,2,4,8,5,6,9,10))
-		if(istype(get_step(src,direction),/turf/open/floor))
-			var/turf/open/floor/FF = get_step(src,direction)
-			FF.update_icon() //so siding get updated properly
+	for(var/direction in GLOB.alldirs)
+		var/turf/open/floor/neighbor_turf = get_step(src, direction)
+		if(istype(neighbor_turf, /turf/open/floor))
+			neighbor_turf.update_icon() //so siding get updated properly
 
 /turf/open/floor/carpet/is_carpet_floor()
 	return TRUE
