@@ -16,9 +16,34 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	plane = OPEN_SPACE_PLANE_START
 	is_weedable = NOT_WEEDABLE
 
+// Most of this is copied from the parent call to avoid proc-call overhead.
+// On large maps we have so many of these it's actually worth worrying about,
+// unlike on TG.
 /turf/open_space/Initialize()
-	pass_flags = GLOB.pass_flags_cache[type]
+	SHOULD_CALL_PARENT(FALSE) // this doesn't parent call for optimisation reasons
+	if(flags_atom & INITIALIZED)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_atom |= INITIALIZED
 
+	// by default, vis_contents is inherited from the turf that was here before
+	vis_contents.Cut()
+
+	GLOB.turfs += src
+
+	assemble_baseturfs()
+
+	levelupdate()
+
+	var/turf/above = SSmapping.get_turf_above(src)
+	var/turf/below = SSmapping.get_turf_below(src)
+
+	if(above)
+		above.multiz_new(dir=DOWN)
+
+	if(below)
+		below.multiz_new(dir=UP)
+
+	pass_flags = GLOB.pass_flags_cache[type]
 	if (isnull(pass_flags))
 		pass_flags = new()
 		initialize_pass_flags(pass_flags)
@@ -26,8 +51,19 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	else
 		initialize_pass_flags()
 
+	for(var/atom/movable/AM in src)
+		Entered(AM)
+
+	RegisterSignal(src, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON, PROC_REF(on_atom_created))
+
 	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	return INITIALIZE_HINT_LATELOAD
+
+// Make things that were created on our turf fall down, since they don't call Entered
+/turf/open_space/proc/on_atom_created(atom/created_atom)
+	SIGNAL_HANDLER
+	if(ismovable(created_atom))
+		check_fall(created_atom)
 
 /turf/open_space/attack_alien(mob/user)
 	attack_hand(user)
@@ -37,7 +73,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 
 /turf/open_space/Entered(atom/movable/entered_movable, atom/old_loc)
 	. = ..()
-
 	check_fall(entered_movable)
 
 /turf/open_space/on_throw_end(atom/movable/thrown_atom)
@@ -95,7 +130,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	movable.forceMove(below)
 	movable.onZImpact(below, height)
 
-
+// this is purely visual with none of the interaction mechanics
 /turf/solid_open_space
 	name = "open space"
 	icon_state = "transparent_solid"
@@ -105,6 +140,10 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	density = TRUE
 
 /turf/solid_open_space/Initialize()
+	SHOULD_CALL_PARENT(FALSE) // this doesn't parent call for optimisation reasons
+	if(flags_atom & INITIALIZED)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_atom |= INITIALIZED
 	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	icon_state = "transparent"
 	return INITIALIZE_HINT_LATELOAD
