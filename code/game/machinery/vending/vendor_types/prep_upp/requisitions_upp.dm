@@ -135,11 +135,7 @@
 	icon_state = "upp_req_guns_wall"
 	vend_delay = 3
 	vend_sound = 'sound/machines/vending_drop.ogg'
-	tiles_with = list(
-		/obj/structure/window/framed/upp_ship,
-		/obj/structure/machinery/door/airlock,
-		/turf/closed/wall/upp_ship,
-	)
+	smoothing_profile = /datum/smoothing_profile/upp_ship_airlock_windows_hull
 
 //------------UPP AMMUNITION VENDOR---------------
 
@@ -193,11 +189,7 @@
 	icon_state = "upp_req_ammo_wall"
 	vend_delay = 3
 	vend_sound = 'sound/machines/vending_drop.ogg'
-	tiles_with = list(
-		/obj/structure/window/framed/upp_ship,
-		/obj/structure/machinery/door/airlock,
-		/turf/closed/wall/upp_ship,
-	)
+	smoothing_profile = /datum/smoothing_profile/upp_ship_airlock_windows_hull
 
 //------------ATTACHMENTS VENDOR---------------
 
@@ -248,11 +240,7 @@
 	icon_state = "upp_req_attach_wall"
 	vend_delay = 3
 	vend_sound = 'sound/machines/vending_drop.ogg'
-	tiles_with = list(
-		/obj/structure/window/framed/upp_ship,
-		/obj/structure/machinery/door/airlock,
-		/turf/closed/wall/upp_ship,
-	)
+	smoothing_profile = /datum/smoothing_profile/upp_ship_airlock_windows_hull
 
 //------------UNIFORM VENDOR---------------
 

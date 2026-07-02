@@ -13,14 +13,7 @@
 	var/thermite = 0
 	var/melting = FALSE
 	var/claws_minimum = CLAW_TYPE_SHARP
-
-	tiles_with = list(
-		/turf/closed/wall,
-		/obj/structure/window/framed,
-		/obj/structure/window_frame,
-		/obj/structure/girder,
-		/obj/structure/machinery/door,
-	)
+	smoothing_profile = /datum/smoothing_profile/all_with_wall
 
 	var/damage = 0
 	/// Wall will break down to girders if damage reaches this point
@@ -43,14 +36,6 @@
 	var/acided_hole_dir = SOUTH
 
 	var/special_icon = 0
-	/// Kinds of /turf/closed/wall that can be blended with
-	var/list/blend_turfs = list(/turf/closed/wall)
-	/// Kinds of /turf/closed/wall that cannot be blended with
-	var/list/noblend_turfs = list(/turf/closed/wall/mineral, /turf/closed/wall/almayer/research/containment) //Turfs to avoid blending with
-	/// Kinds of /obj that can be blended with
-	var/list/blend_objects = list(/obj/structure/machinery/door, /obj/structure/window_frame, /obj/structure/window/framed) // Objects which to blend with
-	/// Kinds of /obj  that cannot be blended with
-	var/list/noblend_objects = list(/obj/structure/machinery/door/window) //Objects to avoid blending with (such as children of listed blend objects.
 
 	var/list/hiding_humans = list()
 

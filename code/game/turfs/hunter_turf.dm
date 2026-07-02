@@ -727,11 +727,14 @@
 	icon_state = "ancient_stone"
 	walltype = WALL_ANCIENT_BASE
 	baseturfs = /turf/open/gm/dirt
+	smoothing_profile = /datum/smoothing_profile/all_with_wall/ancient_temple
 	var/decoration_type
-	var/list/debris
+	var/list/debris = list(/obj/item/stack/sheet/mineral/sandstone, /obj/effect/hunter/ancient_temple/rubble/rubble)
+
+/datum/smoothing_profile/all_with_wall/ancient_temple
 	blend_turfs = list(/turf/closed/wall)
 	blend_objects = list(/obj/structure/prop/hunter/ancient_temple/collapsed_wall, /obj/structure/machinery/door, /obj/structure/window_frame, /obj/structure/window/framed)
-	debris = list(/obj/item/stack/sheet/mineral/sandstone, /obj/effect/hunter/ancient_temple/rubble/rubble)
+	noblend_turfs = list(/turf/closed/wall/almayer/research/containment) // allow us to smooth with mineral turfs
 
 /turf/closed/wall/ancient_temple/unbreakable
 	turf_flags = TURF_HULL

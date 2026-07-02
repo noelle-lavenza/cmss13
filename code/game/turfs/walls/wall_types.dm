@@ -15,16 +15,7 @@
 	opacity = TRUE
 	density = TRUE
 
-	tiles_with = list(
-		/turf/closed/wall,
-		/obj/structure/window/framed,
-		/obj/structure/window_frame,
-		/obj/structure/girder,
-		/obj/structure/machinery/door,
-		/obj/structure/machinery/cm_vending/sorted/attachments/blend,
-		/obj/structure/machinery/cm_vending/sorted/cargo_ammo/cargo/blend,
-		/obj/structure/machinery/cm_vending/sorted/cargo_guns/cargo/blend,
-	)
+	smoothing_profile = /datum/smoothing_profile/all_with_wall/almayer
 
 	/// The type of wall decoration we use, to avoid the wall changing icon all the time
 	var/decoration_type
@@ -89,7 +80,7 @@
 	turf_flags = TURF_HULL //Impossible to destroy or even damage. Used for outer walls that would breach into space, potentially some special walls
 
 /turf/closed/wall/almayer/no_door_tile
-	tiles_with = list(/turf/closed/wall,/obj/structure/window/framed,/obj/structure/window_frame,/obj/structure/girder)
+	smoothing_profile = /datum/smoothing_profile/all_but_door
 
 /turf/closed/wall/almayer/outer/take_damage(dam, mob/M)
 	return
@@ -110,17 +101,26 @@
 	icon_state = "reinforced"
 
 /turf/closed/wall/almayer/white/outer_tile
-	tiles_with = list(/turf/closed/wall/almayer/white,/turf/closed/wall/almayer/outer)
+	smoothing_profile = /datum/smoothing_profile/almayer_outer_white
+
+/datum/smoothing_profile/almayer_outer_white
+	tiles_with = list(/turf/closed/wall/almayer/white, /turf/closed/wall/almayer/outer)
 
 /turf/closed/wall/almayer/white/hull
 	name = "ultra reinforced hull"
 	desc = "An extremely reinforced metal wall used to isolate potentially dangerous areas."
 	icon_state = "hull"
 	turf_flags = TURF_HULL
+	smoothing_profile = /datum/smoothing_profile/all_with_wall/almayer/almayer_white_hull
+
+/datum/smoothing_profile/all_with_wall/almayer/almayer_white_hull
 	noblend_turfs = list(/turf/closed/wall/mineral, /turf/closed/wall/almayer/research/containment, /turf/closed/wall/almayer/outer)
 	noblend_objects = list(/obj/structure/machinery/door/window, /obj/structure/machinery/door/poddoor/almayer)
 
 /turf/closed/wall/almayer/white/hull/blend_pod
+	smoothing_profile = /datum/smoothing_profile/all_with_wall/almayer/almayer_white_hull/blend_pod
+
+/datum/smoothing_profile/all_with_wall/almayer/almayer_white_hull/blend_pod
 	noblend_objects = list(/obj/structure/machinery/door/window)
 
 /turf/closed/wall/almayer/research/can_be_dissolved()
@@ -130,7 +130,7 @@
 	name = "cell wall"
 	icon = 'icons/turf/almayer.dmi'
 	icon_state = null
-	tiles_with = null
+	smoothing_profile = null
 	walltype = null
 	special_icon = TRUE
 
@@ -300,16 +300,7 @@
 	walltype = WALL_UPP_SHIP
 	icon = 'icons/turf/walls/upp_walls.dmi'
 	icon_state = "uppwall_interior"
-	tiles_with = list(
-		/turf/closed/wall,
-		/obj/structure/window/framed,
-		/obj/structure/window_frame,
-		/obj/structure/girder,
-		/obj/structure/machinery/door,
-		/obj/structure/machinery/cm_vending/sorted/attachments/upp_attachments/blend,
-		/obj/structure/machinery/cm_vending/sorted/cargo_ammo/upp_cargo_ammo/blend,
-		/obj/structure/machinery/cm_vending/sorted/cargo_guns/upp_cargo_guns/blend,
-	)
+	smoothing_profile = /datum/smoothing_profile/all_with_wall/upp_ship
 
 /turf/closed/wall/upp_ship/reinforced
 	name = "reinforced hull"
@@ -397,7 +388,7 @@
 	var/mineral
 	var/last_event = 0
 	var/active = null
-	tiles_with = list(/turf/closed/wall/mineral)
+	smoothing_profile = /datum/smoothing_profile/mineral_wall
 
 /turf/closed/wall/mineral/gold
 	name = "gold wall"
@@ -444,10 +435,8 @@
 	damage_cap = HEALTH_WALL_REINFORCED//Strong, but only available to Hunters, can can still be blown up or melted by boilers.
 	baseturfs = /turf/open/floor/sandstone/runed
 	walltype = WALL_ANCIENT_BASE
+	smoothing_profile = /datum/smoothing_profile/all_with_wall/ancient_temple
 	var/decoration_type
-	blend_turfs = list(/turf/closed/wall)
-	blend_objects = list(/obj/structure/prop/hunter/ancient_temple/collapsed_wall, /obj/structure/machinery/door, /obj/structure/window_frame, /obj/structure/window/framed)
-	noblend_turfs = list(/turf/closed/wall/almayer/research/containment)
 
 /turf/closed/wall/mineral/sandstone/runed/attack_alien(mob/living/carbon/xenomorph/user)
 	visible_message("[user] scrapes uselessly against [src] with their claws.")
@@ -563,6 +552,9 @@
 	icon_state = "runedstone"
 	walltype = WALL_RUNEDSTONE
 	color = "#524e49"
+	smoothing_profile = /datum/smoothing_profile/all_with_wall/dark_temple
+
+/datum/smoothing_profile/all_with_wall/dark_temple
 	blend_turfs = list(/turf/closed/wall)
 	noblend_turfs = list(/turf/closed/wall/almayer/research/containment)
 
@@ -637,6 +629,9 @@
 	turf_flags = TURF_HULL
 	baseturfs = /turf/open/gm/dirt
 	minimap_color = MINIMAP_BLACK
+	smoothing_profile = /datum/smoothing_profile/all_with_wall/rock
+
+/datum/smoothing_profile/all_with_wall/rock
 	noblend_turfs = list(/turf/closed/wall/ancient_temple, /turf/closed/wall/mineral/bone_resin)
 
 /turf/closed/wall/rock/Initialize(mapload)
@@ -912,9 +907,8 @@
 	walltype = WALL_RESIN
 	damage_cap = HEALTH_WALL_XENO
 	layer = RESIN_STRUCTURE_LAYER
-	blend_turfs = list(/turf/closed/wall/resin)
-	blend_objects = list(/obj/structure/mineral_door/resin)
 	repair_materials = list()
+	smoothing_profile = /datum/smoothing_profile/all_with_wall/resin
 	var/hivenumber = XENO_HIVE_NORMAL
 	var/should_track_build = FALSE
 	var/upgrading_now = FALSE //flag to track upgrading/thickening process
@@ -924,6 +918,10 @@
 	var/boosted_regen = FALSE
 	var/should_grow_up = TRUE
 	COOLDOWN_DECLARE(automatic_heal)
+
+/datum/smoothing_profile/all_with_wall/resin
+	blend_turfs = list(/turf/closed/wall/resin)
+	blend_objects = list(/obj/structure/mineral_door/resin)
 
 /turf/closed/wall/resin/Initialize(mapload)
 	. = ..()

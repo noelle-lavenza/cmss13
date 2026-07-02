@@ -602,11 +602,7 @@
 	desc = "A square metal surface resting on its fat metal bottom. You can't flip something that doesn't have legs."
 	icon_state = "rostockStable" //instance, this is a static table for req.
 	table_prefix = "rostockS"
-	tiles_with = list(
-		/obj/structure/window/framed/almayer,
-		/obj/structure/machinery/door/airlock,
-		/turf/closed/wall,
-	)
+	smoothing_profile = /datum/smoothing_profile/almayer_airlock_windows_allwall
 
 /obj/structure/surface/table/reinforced/rostock_blend/north
 	icon_state = "rostockNtable"
@@ -635,11 +631,7 @@
 	desc = "A square metal surface resting on its fat metal bottom. You can't flip something that doesn't have legs."
 	icon_state = "reqStable" //instance, this is a static table for req.
 	table_prefix = "reqS"
-	tiles_with = list(
-		/obj/structure/window/framed/almayer,
-		/obj/structure/machinery/door/airlock,
-		/turf/closed/wall,
-	)
+	smoothing_profile = /datum/smoothing_profile/almayer_airlock_windows_allwall
 
 /obj/structure/surface/table/reinforced/almayer_blend/north
 	icon_state = "reqNtable"

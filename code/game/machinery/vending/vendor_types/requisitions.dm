@@ -228,11 +228,7 @@
 	icon_state = "req_guns_wall"
 	vend_delay = 3
 	vend_sound = 'sound/machines/vending_drop.ogg'
-	tiles_with = list(
-		/obj/structure/window/framed/almayer,
-		/obj/structure/machinery/door/airlock,
-		/turf/closed/wall/almayer,
-	)
+	smoothing_profile = /datum/smoothing_profile/almayer_airlock_windows_hull
 
 //------------AMMUNITION VENDOR---------------
 
@@ -369,11 +365,7 @@
 	icon_state = "req_ammo_wall"
 	vend_delay = 3
 	vend_sound = 'sound/machines/vending_drop.ogg'
-	tiles_with = list(
-		/obj/structure/window/framed/almayer,
-		/obj/structure/machinery/door/airlock,
-		/turf/closed/wall/almayer,
-	)
+	smoothing_profile = /datum/smoothing_profile/almayer_airlock_windows_hull
 
 //Special cargo-specific vendor with vending offsets
 /obj/structure/machinery/cm_vending/sorted/cargo_ammo/cargo
@@ -456,11 +448,7 @@
 	icon_state = "req_attach_wall"
 	vend_delay = 3
 	vend_sound = 'sound/machines/vending_drop.ogg'
-	tiles_with = list(
-		/obj/structure/window/framed/almayer,
-		/obj/structure/machinery/door/airlock,
-		/turf/closed/wall/almayer,
-	)
+	smoothing_profile = /datum/smoothing_profile/almayer_airlock_windows_hull
 
 //------------UNIFORM VENDOR---------------
 

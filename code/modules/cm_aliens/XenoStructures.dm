@@ -368,6 +368,9 @@
 
 	flags_obj = OBJ_ORGANIC
 	layer = DOOR_CLOSED_LAYER
+	smoothing_profile = /datum/smoothing_profile/resin_door
+
+/datum/smoothing_profile/resin_door
 	tiles_with = list(/obj/structure/mineral_door/resin)
 
 /obj/structure/mineral_door/resin/Initialize(mapload, hive)

@@ -82,10 +82,7 @@
 /obj/structure/machinery/door/poddoor/shutters/almayer
 	icon = 'icons/obj/structures/doors/blastdoors_shutters.dmi'
 	openspeed = 4 //shorter open animation.
-	tiles_with = list(
-		/obj/structure/window/framed/almayer,
-		/obj/structure/machinery/door/airlock,
-	)
+	smoothing_profile = /datum/smoothing_profile/almayer_airlock_windows
 
 /obj/structure/machinery/door/poddoor/shutters/almayer/open
 	density = FALSE

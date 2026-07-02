@@ -213,10 +213,7 @@
 	openspeed = 5
 	req_access = null // Colony side airlocks should not have any sort of access.
 	req_one_access = null
-	tiles_with = list(
-		/obj/structure/window/framed/strata,
-		/obj/structure/machinery/door/airlock,
-	)
+	smoothing_profile = /datum/smoothing_profile/strata_airlock_windows
 
 /obj/structure/machinery/door/airlock/strata/autoname
 	autoname = TRUE
@@ -249,10 +246,7 @@
 	openspeed = 5
 	req_access = null
 	req_one_access = null
-	tiles_with = list(
-		/obj/structure/window/framed/strata,
-		/obj/structure/machinery/door/airlock,
-	)
+	smoothing_profile = /datum/smoothing_profile/strata_airlock_windows
 	masterkey_resist = TRUE
 	no_panel = TRUE
 	not_weldable = TRUE
@@ -280,10 +274,7 @@
 	openspeed = 5
 	req_access = null
 	req_one_access = null
-	tiles_with = list(
-		/obj/structure/window/framed/prison,
-		/obj/structure/machinery/door/airlock,
-	)
+	smoothing_profile = /datum/smoothing_profile/prison_airlock_windows
 
 /obj/structure/machinery/door/airlock/prison_hatch/autoname
 	autoname = TRUE
@@ -294,10 +285,7 @@
 	name = "\improper Airlock"
 	icon = 'icons/obj/structures/doors/almayerdoor.dmi' //Tiles with is here FOR SAFETY PURPOSES
 	openspeed = 4 //shorter open animation.
-	tiles_with = list(
-		/obj/structure/window/framed/almayer,
-		/obj/structure/machinery/door/airlock,
-	)
+	smoothing_profile = /datum/smoothing_profile/almayer_airlock_windows
 
 /obj/structure/machinery/door/airlock/almayer/Initialize()
 	. = ..()

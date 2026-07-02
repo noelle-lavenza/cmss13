@@ -87,17 +87,21 @@
 /turf/closed/wall/proc/can_join_with(turf/closed/wall/target)
 	if(target.type == type)
 		return TRUE
-	if(is_type_in_list(target, noblend_turfs))
+	if(!smoothing_profile)
 		return FALSE
-	if(is_type_in_list(target, blend_turfs))
+	if(is_type_in_typecache(target, smoothing_profile.noblend_turfs))
+		return FALSE
+	if(is_type_in_typecache(target, smoothing_profile.blend_turfs))
 		return TRUE
 	return FALSE
 
 /// Returns whether the obj can be joined with based on blend_objects and noblend_objects
 /turf/closed/wall/proc/can_join_with_object(obj/target)
-	if(is_type_in_list(target, noblend_objects))
+	if(!smoothing_profile)
 		return FALSE
-	if(is_type_in_list(target, blend_objects))
+	if(is_type_in_typecache(target, smoothing_profile.noblend_objects))
+		return FALSE
+	if(is_type_in_typecache(target, smoothing_profile.blend_objects))
 		return TRUE
 	return FALSE
 

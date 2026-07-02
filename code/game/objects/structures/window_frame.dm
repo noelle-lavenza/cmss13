@@ -18,12 +18,7 @@
 	var/buildstackamount = 2
 	projectile_coverage = PROJECTILE_COVERAGE_MEDIUM
 	surgery_duration_multiplier = SURGERY_SURFACE_MULT_UNSUITED
-
-	tiles_with = list(/turf/closed/wall)
-	var/tiles_special[] = list(/obj/structure/machinery/door/airlock,
-		/obj/structure/window/framed,
-		/obj/structure/girder,
-		/obj/structure/window_frame)
+	smoothing_profile = /datum/smoothing_profile/just_wall/window_special
 
 /obj/structure/window_frame/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()

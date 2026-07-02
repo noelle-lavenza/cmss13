@@ -118,6 +118,12 @@
 	if(density)
 		is_weedable = NOT_WEEDABLE
 
+	if(smoothing_profile)
+		if(GLOB.smoothing_profiles[smoothing_profile])
+			smoothing_profile = GLOB.smoothing_profiles[smoothing_profile]
+		else
+			smoothing_profile = (GLOB.smoothing_profiles[smoothing_profile] = new smoothing_profile)
+
 	if(istransparentturf(src))
 		return INITIALIZE_HINT_LATELOAD
 	else

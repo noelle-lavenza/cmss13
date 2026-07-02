@@ -418,6 +418,12 @@ Parameters are passed from New.
 		initialize_pass_flags()
 	Decorate(mapload)
 
+	if(smoothing_profile)
+		if(GLOB.smoothing_profiles[smoothing_profile])
+			smoothing_profile = GLOB.smoothing_profiles[smoothing_profile]
+		else
+			smoothing_profile = (GLOB.smoothing_profiles[smoothing_profile] = new smoothing_profile)
+
 	return INITIALIZE_HINT_NORMAL
 
 //called if Initialize returns INITIALIZE_HINT_LATELOAD

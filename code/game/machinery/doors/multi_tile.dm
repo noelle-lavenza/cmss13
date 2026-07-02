@@ -124,10 +124,7 @@
 	icon = 'icons/obj/structures/doors/2x1almayerdoor.dmi' //Tiles with is here FOR SAFETY PURPOSES
 	openspeed = 4 //shorter open animation.
 	var/queen_pryable = TRUE
-	tiles_with = list(
-		/obj/structure/window/framed/almayer,
-		/obj/structure/machinery/door/airlock,
-	)
+	smoothing_profile = /datum/smoothing_profile/almayer_airlock_windows
 
 /obj/structure/machinery/door/airlock/multi_tile/almayer/Initialize()
 	. = ..()
@@ -259,7 +256,7 @@
 
 /obj/structure/machinery/door/airlock/multi_tile/almayer/maint/reinforced/colony/autoname
 	autoname = TRUE
- 
+
 //------Containment 3-tile Doors -----//
 
 /obj/structure/machinery/door/airlock/multi_tile/almayer/containment

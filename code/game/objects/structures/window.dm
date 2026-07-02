@@ -508,12 +508,8 @@
 	layer = TABLE_LAYER
 	static_frame = 1
 	flags_atom = FPRINT
+	smoothing_profile = /datum/smoothing_profile/just_wall/window_special
 	var/window_frame //For perspective windows,so the window frame doesn't magically dissapear
-	var/list/tiles_special = list(/obj/structure/machinery/door/airlock,
-		/obj/structure/window/framed,
-		/obj/structure/girder,
-		/obj/structure/window_frame)
-	tiles_with = list(/turf/closed/wall)
 
 /obj/structure/window/framed/Initialize()
 	. = ..()
